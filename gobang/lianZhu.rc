@@ -1,0 +1,247 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\7.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\7.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 53
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 智能五子棋"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "智能五子棋",IDC_STATIC,40,18,119,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+    LTEXT           "实验版本(网上下载代码修改而成)",IDC_STATIC,51,31,129,8
+END
+
+IDD_MAINDLG DIALOGEX 0, 0, 412, 299
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "智能五子棋"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    CONTROL         139,IDC_STATIC,"Static",SS_BITMAP,311,9,32,32,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "智能五子棋",IDC_STATIC,304,0,104,297
+    DEFPUSHBUTTON   "新游戏",IDC_BUTTON1,311,66,44,43
+    PUSHBUTTON      "选项",IDC_BUTTON2,358,146,40,39
+    PUSHBUTTON      "悔棋",IDC_BUTTON3,373,186,37,36
+    PUSHBUTTON      "关于",IDC_BUTTON7,367,224,30,28
+    PUSHBUTTON      "退出",IDC_BUTTON8,334,246,25,26
+    LTEXT           "网上下载代码修改而成",IDC_STATIC,311,282,92,10
+    PUSHBUTTON      "保存",IDC_BUTTON4,323,111,49,39
+    PUSHBUTTON      "加载",IDC_BUTTON5,360,66,48,42
+END
+
+IDD_OPTIONDLG DIALOG DISCARDABLE  0, 0, 278, 141
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "选项"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定(&Y)",IDOK,164,120,50,14
+    PUSHBUTTON      "取消(&N)",IDCANCEL,221,120,50,14
+    GROUPBOX        "模式选择",IDC_STATIC,14,15,124,85
+    GROUPBOX        "智能等级",IDC_STATIC,150,15,114,85
+    CONTROL         "人先机后",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,19,33,98,12
+    CONTROL         "机先人后",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,20,53,
+                    98,12
+    CONTROL         "两人对翌",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,20,73,
+                    98,12
+    CONTROL         "低",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON | WS_GROUP,
+                    163,31,46,13
+    CONTROL         "中",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,163,51,46,13
+    CONTROL         "高",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,163,71,46,13
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "四叶草工作室\0"
+            VALUE "FileDescription", "妙手连珠\0"
+            VALUE "FileVersion", "1.00\0"
+            VALUE "InternalName", "妙手连珠\0"
+            VALUE "LegalCopyright", "\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "妙手连珠.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "妙手连珠\0"
+            VALUE "ProductVersion", "1.00\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 46
+    END
+
+    IDD_MAINDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 410
+    END
+
+    IDD_OPTIONDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_QZH                 BITMAP  DISCARDABLE     "res\\qzh.bmp"
+IDB_QZB                 BITMAP  DISCARDABLE     "res\\qzb.bmp"
+IDB_QP                  BITMAP  DISCARDABLE     "res\\qp.bmp"
+IDB_MASK                BITMAP  DISCARDABLE     "res\\mask.bmp"
+IDB_DEAD                BITMAP  DISCARDABLE     "res\\dead.bmp"
+IDB_LOGO                BITMAP  DISCARDABLE     "res\\logoo.bmp"
+IDB_QZBL                BITMAP  DISCARDABLE     "res\\qzbl.bmp"
+IDB_QZHL                BITMAP  DISCARDABLE     "res\\qzhl.bmp"
+IDB_STATUS              BITMAP  DISCARDABLE     "res\\statusAnalyse.bmp"
+#endif    // Chinese (中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\7.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

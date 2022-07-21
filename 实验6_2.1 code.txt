@@ -1,0 +1,132 @@
+/*
+	按下"保存"这个按钮时,需要保存的数据包括:
+	int nturn;    // 表示当前下子的顺序(只有在使用模式为2_两人对弈时才有效)
+		          // 1-白子下,2-黑子下,0-不知道谁下)
+	int AItype;	   // 智能等级: 
+                           // 0低预测6步； 1中预测10步； 2高预测16步
+	int Model;	   // 模式0人->机 1机->人 2对翌
+	char map[15][15];	//储存棋盘地图(0-某点空,1-白子,2-黑子)
+				//表示棋盘上某一个交叉点是否已经下过子
+      //以下参数用于保存下棋历史记录
+	int nowd2;	            // 表示当前已经下了多少子的计数器
+	wzsave wzs[225];   // 对应棋盘的15行*15列
+                                    // 下棋的历史数据，可认为是一个结构类型
+*/
+
+
+wzsave wzs[225];   // 对应棋盘的15行*15列
+                                    // 下棋的历史数据，可认为是一个结构类型
+该类型中包含以下数据：
+                                 bool    used;     // 是否使用
+			         bool    color;    // 颜色(false- 白子；true-黑子)
+			         int       ix;         // x坐标(第几行第几列)
+                                 int       iy;         // y坐标(第几行第几列)
+
+将以上分析的数据保存到文件中就可以了。
+
+如何访问这些数据
+
+以上分析的数据全部都可以通过twzq.****的格式来读写，如：
+              读下子顺序的这个变量，程序可以这样写：
+                            twzq.nturn=1;
+在以上需要保存的数据中，棋型数据和下棋的历史数据的数据类型比较特殊，所以提供它们的访问方法：
+
+     (1) 棋型数据
+           二维数组的访问方法和一维数组一样，可以通过下标方式访问，不同的是要提供两个下标(一个行下标、一个列下标，可以将二维数组看作是一个矩阵)，所以访问方法是：
+           twzq.map[行下标][列下标]。
+     
+    (2) 下棋的历史数据
+             是一个结构，可以使用 twzq.wzs.[下标].变量名称  来访问结构中的变量
+
+
+/*显示保存文件对话框
+
+	CFileDialog(BOOL bOpenFileDialog,  TRUE for FileOpen, FALSE for FileSaveAs
+		LPCTSTR lpszDefExt = NULL,	 默认扩展名
+		LPCTSTR lpszFileName = NULL, 默认文件名称
+		DWORD dwFlags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,打开方式
+		LPCTSTR lpszFilter = NULL,	可供选择的文件类型和相应的扩展名,文件类型之间用|分割,结尾用||分割
+		CWnd* pParentWnd = NULL);
+	*/
+
+
+
+void CMyDlg::OnSave() 
+{
+	CString ls_fileName;
+     CFileDialog lcf_open(false,"wzq",NULL,OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT,
+		"wzq files(*.wzq)||",NULL);
+	if (lcf_open.DoModal()==IDOK){
+
+		//取文件名称
+		ls_fileName = lcf_open.GetPathName();
+
+//打开文件供读写
+//CStdioFile lf_saveFile(ls_fileName,CFile::modeCreate|CFile::modeReadWrite);
+
+		ofstream lf_saveFile;
+		lf_saveFile.open(ls_fileName);    
+		if (!lf_saveFile) {                      //检查文件打开是否正常
+			AfxMessageBox("不能打开文件:"+ls_fileName);
+			return;
+		}
+
+                
+                char * ls_value = new char(10);
+		/*
+			以下开始写数据到文件中
+		*/
+		//nturn
+		itoa(twzq.nturn,ls_value,10);
+		lf_saveFile<<ls_value<<"\n";
+
+		//AItype
+		itoa(twzq.AItype,ls_value,10);
+		lf_saveFile<<ls_value<<"\n";
+
+		//Model
+		itoa(twzq.Model,ls_value,10);
+		lf_saveFile<<ls_value<<"\n";
+
+		//map
+		for(int li_x=0;li_x<15;li_x++) {
+			for (int li_y=0;li_y<15;li_y++) {
+				itoa(twzq.map[li_x][li_y],ls_value,10);
+				lf_saveFile<<ls_value<<"\n";
+			}
+		}
+
+		//nowd2
+		itoa(twzq.nowd2,ls_value,10);
+		lf_saveFile<<ls_value<<"\n";
+
+		//wzsave
+		for(li_x=0;li_x<twzq.nowd2;li_x++) {
+			//used
+			itoa((int)twzq.wzs[li_x].used,ls_value,10);
+			lf_saveFile<<ls_value<<"\n";
+
+			//color
+			itoa((int)twzq.wzs[li_x].color,ls_value,10);
+			lf_saveFile<<ls_value<<"\n";
+			
+			//ix
+			itoa(twzq.wzs[li_x].ix,ls_value,10);
+			lf_saveFile<<ls_value<<"\n";
+
+			//iy
+			itoa(twzq.wzs[li_x].iy,ls_value,10);
+			lf_saveFile<<ls_value<<"\n";
+		}
+
+		//关闭文件
+		lf_saveFile.close();
+	}	
+
+}
+
+
+
+
+
+
